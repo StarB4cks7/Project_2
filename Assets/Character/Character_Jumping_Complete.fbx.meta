@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: 5f8e952e83a61c6428fcce2c8ce4a806
+guid: 2692c188dc9c1a348907f6a5d54f2a2a
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable:
   - first:
-      74: -296855833116732274
-    second: 0Tpose
-  - first:
-      74: 2828066270271864637
-    second: 1Running AnimationGR
+      74: 1742679161841691293
+    second: Jumping
   externalObjects: {}
   materials:
     materialImportMode: 2
