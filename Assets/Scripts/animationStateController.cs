@@ -6,6 +6,8 @@ public class animationStateController : MonoBehaviour
 {
     Animator animator;
 
+    private bool isJumbing;
+    private bool isGrounded;
     // Start is called before the first frame update
     void Start()
     {

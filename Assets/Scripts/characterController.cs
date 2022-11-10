@@ -8,9 +8,18 @@ public class characterController : MonoBehaviour
     Rigidbody rb;
     public float rb_jumpPower = 20f;
     public float rb_runningSpeed = 20f;
+    public bool groundcheck;
+   
 
 
-     void Start()
+
+    void Awake()
+    {
+      
+    }
+
+
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -25,9 +34,15 @@ public class characterController : MonoBehaviour
         turn.y += Input.GetAxis("Mouse Y");
         transform.localRotation = Quaternion.Euler(0, turn.x, 0);
 
-        if (Input.GetButton("Jump"))
+    
+
+
+
+
+        if (Input.GetButton("Jump") && groundcheck == true)
         {
             rb.AddForce(transform.up * rb_jumpPower);
+            print("Jumped");
         }
 
 
@@ -39,5 +54,25 @@ public class characterController : MonoBehaviour
 
 
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        
+        if(other.gameObject.tag == "Ground")
+        {
+            groundcheck = true;
+            print("hjwhaujfv w");
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            groundcheck = false;
+
+        }
+    }
+}
 
    
