@@ -21,7 +21,9 @@ public class animationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Local bool is equal to bool of animation
         bool isRunning = animator.GetBool("IsRunning");
+        //forward presses
         bool forwardPressed = Input.GetKey("w");
 
         //If Player presses W runnuing animation plays
@@ -49,8 +51,11 @@ public class animationStateController : MonoBehaviour
     {
         isGrounded = true;
         Debug.Log("Groudn check animator");
+        animator.SetBool("IsJumping", false);
+
     }
 
+    //Just landed sets jumping at false
     private void OnTriggerEnter(Collider other)
     {
 
@@ -60,11 +65,14 @@ public class animationStateController : MonoBehaviour
             Debug.Log("landed");
         }
     }
+
+    //
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = false;
+            animator.SetBool("IsJumping", true);
             isJumbing = true;
 
         }
