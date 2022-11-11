@@ -28,6 +28,7 @@ public class characterController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        bool tryToJump = false;
 
         //Mouse Orientaion
         turn.x += Input.GetAxis("Mouse X");
@@ -43,10 +44,11 @@ public class characterController : MonoBehaviour
         {
             rb.AddForce(transform.up * rb_jumpPower);
             print("Jumped");
+            tryToJump = true;
         }
 
 
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w") && tryToJump == false && groundcheck== true)
         {
 
             rb.velocity = transform.forward * rb_runningSpeed;
